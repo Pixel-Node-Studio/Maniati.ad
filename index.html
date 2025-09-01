@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maniati Bakery- Traditional Taste, Modern Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-beige': '#f5e9da',
+                        'warm-brown': '#8b5a2b',
+                        'warm-gold': '#d4af37',
+                        'cream': '#fdf1d6',
+                        'dark-brown': '#5d4037'
+                    },
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%238b5a2b"/><path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="%23d4af37"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            filter: brightness(1.1);
+            transform: scale(1.03);
+        }
+        
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-body bg-warm-beige text-dark-brown">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading font-bold text-warm-brown">Sunrise Bakery</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-warm-gold transition">Home</a>
+                <a href="#about" class="hover:text-warm-gold transition">About</a>
+                <a href="#products" class="hover:text-warm-gold transition">Products</a>
+                <a href="#workshops" class="hover:text-warm-gold transition">Workshops</a>
+                <a href="#gallery" class="hover:text-warm-gold transition">Gallery</a>
+                <a href="#contact" class="hover:text-warm-gold transition">Contact</a>
+            </div>
+            <button class="md:hidden text-warm-brown">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-6 animate-fade-in-down">Traditional Taste, Modern Experience</h1>
+            <p class="text-xl md:text-2xl text-warm-beige max-w-3xl mx-auto mb-10 animate-fade-in-up">Freshly baked breads, artisan pastries & creative workshops in the heart of Heraklion.</p>
+            <a href="#products" class="inline-block bg-warm-gold hover:bg-yellow-600 text-dark-brown font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">Discover Our Bakery</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-cream">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <div class="relative">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96"></div>
+                        <div class="absolute -bottom-6 -right-6 bg-warm-brown text-white p-6 rounded-lg shadow-lg">
+                            <p class="text-4xl font-heading">Since 1985</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6 text-warm-brown">Our Story</h2>
+                    <p class="text-lg mb-6 leading-relaxed">Welcome to Maniati Bakery, where tradition meets innovation. For over three decades, we've been crafting exceptional baked goods using time-honored family recipes passed down through generations.</p>
+                    <p class="text-lg mb-6 leading-relaxed">Every morning, our master bakers begin their work before dawn, carefully selecting the finest ingredients to create breads that fill our shop with irresistible aromas. We believe in the power of simple, quality ingredients transformed through skill and passion.</p>
+                    <p class="text-lg mb-8 leading-relaxed">Our commitment extends beyond delicious pastries and breads. We offer hands-on workshops where you can learn traditional techniques while creating your own culinary masterpieces. Join us in celebrating the art of baking!</p>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <i class="fas fa-bread-slice text-3xl text-warm-brown"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-xl font-semibold">Daily Fresh Baking</h3>
+                            <p>Every item made fresh daily</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-warm-brown">Our Delicious Offerings</h2>
+                <p class="text-xl max-w-2xl mx-auto">Handcrafted with love using traditional methods and premium ingredients</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-cream rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="h-48 bg-gray-200 border-2 border-dashed w-full"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-heading font-bold text-warm-brown">Fresh Bread 🍞</h3>
+                            <span class="bg-warm-gold text-dark-brown text-sm font-bold px-3 py-1 rounded-full">Bestseller</span>
+                        </div>
+                        <p class="mb-4">Daily baked sourdough, rustic loaves, and specialty breads using organic grains.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Sourdough Boule</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Multigrain Loaf</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Ciabatta Rolls</li>
+                        </ul>
+                        <button class="w-full bg-warm-brown hover:bg-dark-brown text-white py-2 rounded-lg transition">View Selection</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-cream rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="h-48 bg-gray-200 border-2 border-dashed w-full"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-heading font-bold text-warm-brown mb-3">Pastries 🥐</h3>
+                        <p class="mb-4">Sweet & savory selections made fresh each morning with buttery layers.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Croissants</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Danish Pastries</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Spanakopita</li>
+                        </ul>
+                        <button class="w-full bg-warm-brown hover:bg-dark-brown text-white py-2 rounded-lg transition">Explore Pastries</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-cream rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="h-48 bg-gray-200 border-2 border-dashed w-full"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-heading font-bold text-warm-brown mb-3">Cakes & Sweets 🍰</h3>
+                        <p class="mb-4">Handmade cakes, seasonal creations, and custom celebration desserts.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Birthday Cakes</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Seasonal Tarts</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Wedding Desserts</li>
+                        </ul>
+                        <button class="w-full bg-warm-brown hover:bg-dark-brown text-white py-2 rounded-lg transition">Order Custom Cake</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-cream rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="h-48 bg-gray-200 border-2 border-dashed w-full"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-heading font-bold text-warm-brown mb-3">Coffee & Drinks ☕</h3>
+                        <p class="mb-4">Specialty coffee, teas, and beverages perfectly paired with our baked goods.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Single Origin Coffee</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Artisan Teas</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-warm-gold mr-2"></i> Fresh Juices</li>
+                        </ul>
+                        <button class="w-full bg-warm-brown hover:bg-dark-brown text-white py-2 rounded-lg transition">View Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section id="workshops" class="py-20 bg-warm-beige">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-warm-brown">Join Our Creative Workshops</h2>
+                <p class="text-xl max-w-2xl mx-auto">Learn traditional techniques while creating your own delicious masterpieces</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Workshop 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg testimonial-card">
+                    <div class="h-48 bg-gray-200 border-2 border-dashed w-full"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-heading font-bold text-warm-brown">Chocolate Making</h3>
+                            <span class="bg-warm-gold text-dark-brown text-xs font-bold px-2 py-1 rounded">Weekend</span>
+                        </div>
+                        <p class="mb-4">Master the art of tempering chocolate and create your own truffles and bonbons.</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-warm-brown font-semibold">€45 per person</span>
+                            <button class="bg-warm-brown hover:bg-dark-brown text-white py-2 px-4 rounded-lg transition">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Workshop 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg testimonial-card">
+                    <div class="h-48 bg-gray-200 border-2 border-dashed w-full"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-heading font-bold text-warm-brown">Cookie Decoration</h3>
+                            <span class="bg-warm-gold text-dark-brown text-xs font-bold px-2 py-1 rounded">Evening</span>
+                        </div>
+                        <p class="mb-4">Learn professional decorating techniques and create beautiful holiday cookies.</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-warm-brown font-semibold">€35 per person</span>
+                            <button class="bg-warm-brown hover:bg-dark-brown text-white py-2 px-4 rounded-lg transition">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Workshop 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg testimonial-card">
+                    <div class="h-48 bg-gray-200 border-2 border-dashed w-full"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-heading font-bold text-warm-brown">Traditional Greek Bread</h3>
+                            <span class="bg-warm-gold text-dark-brown text-xs font-bold px-2 py-1 rounded">Weekday</span>
+                        </div>
+                        <p class="mb-4">Bake authentic Greek bread using ancient techniques and heritage grains.</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-warm-brown font-semibold">€50 per person</span>
+                            <button class="bg-warm-brown hover:bg-dark-brown text-white py-2 px-4 rounded-lg transition">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-warm-brown">Our Bakery Gallery</h2>
+                <p class="text-xl max-w-2xl mx-auto">A glimpse into our world of flavors and creativity</p>
+            </div>
+            
+            <div class="masonry-grid">
+                <div class="gallery-item mb-4 break-inside-avoid">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64"></div>
+                </div>
+                <div class="gallery-item mb-4 break-inside-avoid">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-80"></div>
+                </div>
+                <div class="gallery-item mb-4 break-inside-avoid">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48"></div>
+                </div>
+                <div class="gallery-item mb-4 break-inside-avoid">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-60"></div>
+                </div>
+                <div class="gallery-item mb-4 break-inside-avoid">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-72"></div>
+                </div>
+                <div class="gallery-item mb-4 break-inside-avoid">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-56"></div>
+                </div>
+                <div class="gallery-item mb-4 break-inside-avoid">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64"></div>
+                </div>
+                <div class="gallery-item mb-4 break-inside-avoid">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-cream">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-warm-brown">What Our Customers Say</h2>
+                <p class="text-xl max-w-2xl mx-auto">Hear from those who have experienced our passion firsthand</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                    </div>
+                    <p class="italic mb-6">"The sourdough bread here is absolutely incredible! I've tried bakeries all over Crete, but none compare to Sunrise Bakery. The texture and flavor are perfect every time."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-full w-12 h-12 mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Maria Papadopoulos</h4>
+                            <p class="text-sm text-gray-600">Local Resident</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                    </div>
+                    <p class="italic mb-6">"Attended the chocolate workshop last weekend and had an amazing time! Learned so much and took home beautiful handmade chocolates. Highly recommend to anyone interested in baking."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-full w-12 h-12 mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Giorgos Nikolaou</h4>
+                            <p class="text-sm text-gray-600">Workshop Participant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star text-warm-gold"></i>
+                        <i class="fas fa-star-half-alt text-warm-gold"></i>
+                    </div>
+                    <p class="italic mb-6">"Ordered a custom cake for my daughter's birthday and it was beyond expectations. Beautiful design and delicious taste. The team was so helpful throughout the process."</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-full w-12 h-12 mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Eleni Stefanakis</h4>
+                            <p class="text-sm text-gray-600">Cake Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-warm-brown">Visit Our Bakery</h2>
+                <p class="text-xl max-w-2xl mx-auto">We'd love to welcome you to our cozy corner in Heraklion</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 mb-8"></div>
+                    
+                    <div class="bg-cream p-8 rounded-xl">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-warm-brown">Opening Hours</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b pb-3">
+                                <span>Monday - Friday</span>
+                                <span class="font-medium">7:00 AM - 8:00 PM</span>
+                            </li>
+                            <li class="flex justify-between border-b pb-3">
+                                <span>Saturday</span>
+                                <span class="font-medium">7:00 AM - 9:00 PM</span>
+                            </li>
+                            <li class="flex justify-between border-b pb-3">
+                                <span>Sunday</span>
+                                <span class="font-medium">8:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-cream p-8 rounded-xl h-full">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-warm-brown">Get In Touch</h3>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-warm-brown text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg">Address</h4>
+                                    <p>15 Eleftheriou Venizelou Street<br>Heraklion, Crete 71202</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-warm-brown text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg">Phone</h4>
+                                    <p>+30 2810 123 456</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-warm-brown text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg">Email</h4>
+                                    <p>hello@maniatibakery.gr</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-warm-brown text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-dark-brown transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-warm-brown text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-dark-brown transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-warm-brown text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-dark-brown transition">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <form class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-warm-brown">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-warm-brown">
+                            </div>
+                            <div>
+                                <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-warm-brown"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-warm-brown hover:bg-dark-brown text-white py-3 rounded-lg transition">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-warm-brown text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-heading font-bold">Maniati Bakery</h3>
+                    <p class="mt-2">Traditional Taste, Modern Experience</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-warm-gold transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="hover:text-warm-gold transition"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-warm-gold transition"><i class="fab fa-pinterest-p text-xl"></i></a>
+                </div>
+            </div>
+            
+            <div class="border-t border-warm-gold mt-8 pt-8 text-center">
+                <p>&copy; 2023 Maniati Bakery. All rights reserved. Crafted with <i class="fas fa-heart text-warm-gold"></i> in Heraklion</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
